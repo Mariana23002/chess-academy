@@ -1,16 +1,17 @@
-create table alunos (
-    id_aluno serial,
-    nome varchar(50) not null,
-    rating_atual int not null,
-    primary key(id_aluno)
-);
-
 create table faixas_rating (
     id_faixa serial,
     nome varchar(20),
     rating_minimo int,
     rating_maximo int,
     primary key(id_faixa)
+);
+
+create table alunos (
+    id_aluno serial,
+    nome varchar(50) not null,
+    rating_atual int not null,
+    faixa_id int references faixas_rating(id_faixa),
+    primary key(id_aluno)
 );
 
 create table aberturas (
@@ -24,16 +25,14 @@ create table aberturas (
 
 create table exercicios (
     id_exercicio serial,
-    dificuldade int,
-    enunciado varchar(200),
-    solucao varchar(200),
+    enunciado text,
+    solucao text,
     primary key(id_exercicio)
 );
 
 create table temas (
     id_tema serial,
     nome varchar(50),
-    fase varchar(20),
     descricao varchar(200),
     primary key(id_tema)
 );
