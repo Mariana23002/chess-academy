@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Meu perfil | Chess Academy</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/data.js" defer></script>
+    <script src="../js/app.js" defer></script>
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="../index.html"
+          ><i>♞</i> chess<span>academy</span></a
+        ><small class="nav-label">ÁREA DO ALUNO</small>
+        <nav>
+          <a href="../index.html">▦ <span>Visão geral</span></a
+          ><a href="exercicios.html">♟ <span>Exercícios</span></a
+          ><a href="aberturas.html">♜ <span>Aberturas</span></a
+          ><a href="temas.html">✳ <span>Temas</span></a
+          ><a class="active" href="perfil.html">◎ <span>Meu perfil</span></a>
+        </nav>
+        <div class="side-bottom">
+          <div class="tip">
+            <b>◎ Seu cadastro</b>
+            <p>Consulte os dados da tabela alunos.</p>
+          </div>
+          <small>CHESS ACADEMY · STUDENT</small>
+        </div>
+      </aside>
+      <main>
+        <header>
+          <button id="menuToggle">☰</button>
+          <div>
+            <a href="../index.html">Chess Academy</a> <span>/</span>
+            <b>Meu perfil</b>
+          </div>
+          <label>ÁREA DO ALUNO <i></i></label>
+        </header>
+        <div class="content">
+          <section class="page-title">
+            <small>CADASTRO</small>
+            <h1>Meu perfil</h1>
+            <p>
+              Informações correspondentes às tabelas <code>alunos</code> e
+              <code>faixas_rating</code>.
+            </p>
+          </section>
+          <section class="panel">
+            <div class="section-head">
+              <div>
+                <small>ALUNOS</small>
+                <h2>Dados cadastrais</h2>
+              </div>
+            </div>
+            <div id="profile" class="empty">
+              Nenhum registro de aluno carregado.
+            </div>
+          </section>
+          <section class="panel">
+            <div class="section-head">
+              <div>
+                <small>FAIXAS_RATING</small>
+                <h2>Sua faixa de rating</h2>
+              </div>
+            </div>
+            <div id="profileRange" class="empty">
+              A faixa será identificada pelo rating_atual, comparado a
+              rating_minimo e rating_maximo.
+            </div>
+          </section>
+          <footer>CHESS ACADEMY <span>·</span> Seus dados, seu estudo.</footer>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

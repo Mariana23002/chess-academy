@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Exercícios | Chess Academy</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/data.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</head>
+
+<body>
+    <div class="shell">
+        <aside class="sidebar" id="sidebar"><a class="brand" href="../index.html"><i>♞</i>
+                chess<span>academy</span></a><small class="nav-label">ÁREA DO ALUNO</small>
+            <nav><a href="../index.html">▦ <span>Visão geral</span></a><a class="active" href="exercicios.html">♟
+                    <span>Exercícios</span></a><a href="aberturas.html">♜ <span>Aberturas</span></a><a
+                    href="temas.html">✳ <span>Temas</span></a><a href="perfil.html">◎ <span>Meu perfil</span></a></nav>
+            <div class="side-bottom">
+                <div class="tip"><b>♟ Treino tático</b>
+                    <p>Filtre os exercícios pelas relações cadastradas.</p>
+                </div><small>CHESS ACADEMY · STUDENT</small>
+            </div>
+        </aside>
+        <main>
+            <header><button id="menuToggle">☰</button>
+                <div><a href="../index.html">Chess Academy</a> <span>/</span> <b>Exercícios</b></div><label>ÁREA DO
+                    ALUNO <i></i></label>
+            </header>
+            <div class="content">
+                <section class="page-title"><small>PRÁTICA</small>
+                    <h1>Exercícios</h1>
+                    <p>Consulte os exercícios cadastrados e suas associações com faixas de rating e temas.</p>
+                </section>
+                <section class="panel filters">
+                    <div class="section-head">
+                        <div><small>BUSCA</small>
+                            <h2>Filtrar exercícios</h2>
+                        </div><button class="btn secondary" id="clearExercise">Limpar</button>
+                    </div>
+                    <div class="filter-grid"><label>Faixa de rating<select id="exerciseRange">
+                                <option value="">Todas as faixas</option>
+                            </select></label><label>Tema<select id="exerciseTheme">
+                                <option value="">Todos os temas</option>
+                            </select></label><label>Dificuldade<select id="exerciseDifficulty">
+                                <option value="">Todas</option>
+                            </select></label></div>
+                </section>
+                <div class="section-head">
+                    <div><small>BANCO DE DADOS</small>
+                        <h2>Lista de exercícios</h2>
+                    </div><span id="exerciseCount" class="muted"></span>
+                </div>
+                <div id="exerciseList" class="cards"></div>
+                <footer>CHESS ACADEMY <span>·</span> Pratique com propósito.</footer>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

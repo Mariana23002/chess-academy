@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Aberturas | Chess Academy</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/data.js" defer></script>
+    <script src="../js/app.js" defer></script>
+</head>
+
+<body>
+    <div class="shell">
+        <aside class="sidebar" id="sidebar"><a class="brand" href="../index.html"><i>♞</i>
+                chess<span>academy</span></a><small class="nav-label">ÁREA DO ALUNO</small>
+            <nav><a href="../index.html">▦ <span>Visão geral</span></a><a href="exercicios.html">♟
+                    <span>Exercícios</span></a><a class="active" href="aberturas.html">♜ <span>Aberturas</span></a><a
+                    href="temas.html">✳ <span>Temas</span></a><a href="perfil.html">◎ <span>Meu perfil</span></a></nav>
+            <div class="side-bottom">
+                <div class="tip"><b>♜ Repertório</b>
+                    <p>Explore as linhas iniciais cadastradas.</p>
+                </div><small>CHESS ACADEMY · STUDENT</small>
+            </div>
+        </aside>
+        <main>
+            <header><button id="menuToggle">☰</button>
+                <div><a href="../index.html">Chess Academy</a> <span>/</span> <b>Aberturas</b></div><label>ÁREA DO ALUNO
+                    <i></i></label>
+            </header>
+            <div class="content">
+                <section class="page-title"><small>REPERTÓRIO</small>
+                    <h1>Aberturas</h1>
+                    <p>Consulte aberturas, defesas e gambitos cadastrados no banco de dados.</p>
+                </section>
+                <section class="panel filters">
+                    <div class="section-head">
+                        <div><small>BUSCA</small>
+                            <h2>Filtrar repertório</h2>
+                        </div><button class="btn secondary" id="clearOpening">Limpar</button>
+                    </div>
+                    <div class="filter-grid"><label>Categoria<select id="openingCategory">
+                                <option value="">Todas</option>
+                            </select></label><label>Cor<select id="openingColor">
+                                <option value="">Todas</option>
+                                <option value="brancas">Brancas</option>
+                                <option value="pretas">Pretas</option>
+                            </select></label><label>Faixa de rating<select id="openingRange">
+                                <option value="">Todas as faixas</option>
+                            </select></label></div>
+                </section>
+                <div class="section-head">
+                    <div><small>BANCO DE DADOS</small>
+                        <h2>Biblioteca de aberturas</h2>
+                    </div><span id="openingCount" class="muted"></span>
+                </div>
+                <div id="openingList" class="cards"></div>
+                <footer>CHESS ACADEMY <span>·</span> Estude as posições desde o início.</footer>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
