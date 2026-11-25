@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Visão geral | Chess Academy</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/app.js" defer></script>
+</head>
+
+<body>
+    <div class="shell">
+        <aside class="sidebar" id="sidebar">
+            <a class="brand" href="index.html"><i>♞</i> chess<span>academy</span></a>
+            <small class="nav-label">ÁREA DO ALUNO</small>
+            <nav>
+                <a class="active" href="index.html">▦ <span>Visão geral</span></a>
+                <a href="html/exercicios.html">♟ <span>Exercícios</span></a>
+                <a href="html/aberturas.html">♜ <span>Aberturas</span></a>
+                <a href="html/temas.html">✳ <span>Temas</span></a>
+            </nav>
+            <div class="side-bottom">
+                <div class="tip">
+                    <b>♞ Plano de estudo</b>
+                    <p>Informe seu rating para receber aberturas e exercícios recomendados.</p>
+                </div>
+            </div>
+        </aside>
+
+        <main>
+            <header>
+                <button id="menuToggle">☰</button>
+                <div>
+                    <a href="index.html">Chess Academy</a> <span>/</span>
+                    <b>Visão geral</b>
+                </div>
+                <label>ÁREA DO ALUNO <i></i></label>
+            </header>
+
+            <div class="content">
+                <section class="page-title">
+                    <small>PAINEL DO ALUNO</small>
+                    <h1>Visão geral</h1>
+                    <p>Acompanhe sua faixa de rating e acesse conteúdos recomendados para o seu nível.</p>
+                </section>
+
+                <section class="panel student-card" id="studentSummary">
+                    <div class="student-info">
+                        <div class="avatar">♟</div>
+                        <div>
+                            <h3>Nível não definido</h3>
+                            <p>Informe seu rating abaixo para personalizar suas recomendações.</p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn secondary" id="btnAlterarRating" hidden>Alterar rating</button>
+                </section>
+
+                <div class="section-head">
+                    <div>
+                        <small>CONFIGURAÇÃO</small>
+                        <h2>Definir rating</h2>
+                    </div>
+                </div>
+
+                <section class="panel">
+                    <form id="userForm" class="rating-form">
+                        <label for="userRating">Seu rating atual
+                            <input type="number" id="userRating" min="100" max="3600" placeholder="Ex: 1150" required />
+                        </label>
+                        <button type="submit" class="btn">Salvar e recomendar</button>
+                    </form>
+                </section>
+
+                <section id="secRecomendacoesAberturas" hidden>
+                    <div class="section-head">
+                        <div>
+                            <small>RECOMENDAÇÕES</small>
+                            <h2>Aberturas para seu nível</h2>
+                        </div>
+                        <a class="btn secondary" href="html/aberturas.html">Ver todas</a>
+                    </div>
+                    <div id="recommendedOpenings" class="cards" data-img-dir="img/aberturas"></div>
+                </section>
+
+                <section id="secRecomendacoesExercicios" hidden>
+                    <div class="section-head">
+                        <div>
+                            <small>TREINAMENTO</small>
+                            <h2>Exercícios recomendados</h2>
+                        </div>
+                        <a class="btn secondary" href="html/exercicios.html">Ver todos</a>
+                    </div>
+                    <div id="recommendedExercises" class="cards" data-img-dir="img/exercicios"></div>
+                </section>
+
+                <template id="templateAbertura">
+                    <article class="data-card">
+                        <div>
+                            <div class="card-meta">
+                                <b data-categoria></b>
+                                <button type="button" class="btn-view" data-visualizar>Visualizar</button>
+                            </div>
+                            <h3 data-nome></h3>
+                        </div>
+                        <div>
+                            <span class="sub-label">SEQUÊNCIA INICIAL</span>
+                            <div class="moves" data-movimentos></div>
+                        </div>
+                    </article>
+                </template>
+
+                <template id="templateExercicio">
+                    <article class="data-card">
+                        <div>
+                            <div class="card-meta">
+                                <b data-tema></b>
+                                <button type="button" class="btn-view" data-visualizar>Visualizar</button>
+                            </div>
+                            <p data-enunciado></p>
+                        </div>
+                        <div>
+                            <div class="card-meta">
+                                <span class="sub-label">SOLUÇÃO</span>
+                                <button type="button" class="btn-view" data-visualizar-solucao>Visualizar</button>
+                            </div>
+                        </div>
+                    </article>
+                </template>
+
+                <dialog id="openingModal" class="opening-modal">
+                    <div class="modal-box">
+                        <div class="modal-head">
+                            <div>
+                                <small data-modal-categoria></small>
+                                <h3 data-modal-nome></h3>
+                            </div>
+                            <button type="button" class="btn secondary" data-modal-fechar>Fechar</button>
+                        </div>
+                        <img class="modal-img" data-modal-img src="" alt="" />
+                        <div class="moves" data-modal-movimentos></div>
+                    </div>
+                </dialog>
+
+                <footer>CHESS ACADEMY <span>·</span> Evolua seu jogo todos os dias.</footer>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
