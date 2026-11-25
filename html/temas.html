@@ -1,60 +1,121 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Temas | Chess Academy</title>
+    <title>Exercícios | Chess Academy</title>
     <link rel="stylesheet" href="../css/style.css" />
-    <script src="../js/data.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="../js/app.js" defer></script>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="shell">
-      <aside class="sidebar" id="sidebar">
-        <a class="brand" href="../index.html"
-          ><i>♞</i> chess<span>academy</span></a
-        ><small class="nav-label">ÁREA DO ALUNO</small>
-        <nav>
-          <a href="../index.html">▦ <span>Visão geral</span></a
-          ><a href="exercicios.html">♟ <span>Exercícios</span></a
-          ><a href="aberturas.html">♜ <span>Aberturas</span></a
-          ><a class="active" href="temas.html">✳ <span>Temas</span></a
-          ><a href="perfil.html">◎ <span>Meu perfil</span></a>
-        </nav>
-        <div class="side-bottom">
-          <div class="tip">
-            <b>✳ Temas táticos</b>
-            <p>Conheça os conceitos associados aos exercícios.</p>
-          </div>
-          <small>CHESS ACADEMY · STUDENT</small>
-        </div>
-      </aside>
-      <main>
-        <header>
-          <button id="menuToggle">☰</button>
-          <div>
-            <a href="../index.html">Chess Academy</a> <span>/</span>
-            <b>Temas</b>
-          </div>
-          <label>ÁREA DO ALUNO <i></i></label>
-        </header>
-        <div class="content">
-          <section class="page-title">
-            <small>CONCEITOS</small>
-            <h1>Temas táticos</h1>
-            <p>Veja os temas cadastrados e suas descrições.</p>
-          </section>
-          <div class="section-head">
-            <div>
-              <small>BANCO DE DADOS</small>
-              <h2>Temas disponíveis</h2>
+        <aside class="sidebar" id="sidebar">
+            <a class="brand" href="../index.html"><i>♞</i> chess<span>academy</span></a>
+            <small class="nav-label">ÁREA DO ALUNO</small>
+            <nav>
+                <a href="../index.html">▦ <span>Visão geral</span></a>
+                <a class="active" href="exercicios.html">♟ <span>Exercícios</span></a>
+                <a href="aberturas.html">♜ <span>Aberturas</span></a>
+                <a href="temas.html">✳ <span>Temas</span></a>
+            </nav>
+            <div class="side-bottom">
+                <div class="tip">
+                    <b>♟ Treinamento</b>
+                    <p>Pratique tática e finais cadastrados.</p>
+                </div>
             </div>
-            <span id="themeCount" class="muted"></span>
-          </div>
-          <div id="themeList" class="cards"></div>
-          <footer>CHESS ACADEMY <span>·</span> Aprenda os conceitos.</footer>
-        </div>
-      </main>
+        </aside>
+        <main>
+            <header>
+                <button id="menuToggle">☰</button>
+                <div>
+                    <a href="../index.html">Chess Academy</a> <span>/</span>
+                    <b>Exercícios</b>
+                </div>
+                <label>ÁREA DO ALUNO <i></i></label>
+            </header>
+            <div class="content">
+                <section class="page-title">
+                    <small>TREINAMENTO</small>
+                    <h1>Exercícios</h1>
+                    <p>Resolva posições táticas e finais</p>
+                </section>
+                <section class="panel filters">
+                    <div class="section-head">
+                        <div>
+                            <small>BUSCA</small>
+                            <h2>Filtrar exercícios</h2>
+                        </div>
+                        <button class="btn secondary" id="clearExercise">Limpar</button>
+                    </div>
+                    <div class="filter-grid">
+                        <label>Tema
+                            <select id="exerciseTheme">
+                                <option value="">Todos</option>
+                            </select>
+                        </label>
+                        <label>Faixa de rating
+                            <select id="exerciseRange">
+                                <option value="">Todas as faixas</option>
+                            </select>
+                        </label>
+                    </div>
+                </section>
+                <div class="section-head">
+                    <div>
+                        <small>BANCO DE DADOS</small>
+                        <h2>Biblioteca de exercícios</h2>
+                    </div>
+                    <span id="exerciseCount" class="muted"></span>
+                </div>
+                <div id="exerciseList" class="cards" data-img-dir="../img/exercicios"></div>
+
+                <template id="templateExercicio">
+                    <article class="data-card">
+                        <div>
+                            <div class="card-meta">
+                                <b data-tema></b>
+                                <button type="button" class="btn-view" data-visualizar>Visualizar</button>
+                            </div>
+                            <p data-enunciado></p>
+                        </div>
+                        <div>
+                            <div class="card-meta">
+                                <button type="button" class="btn-view" data-visualizar-solucao>solução</button>
+                            </div>
+                        </div>
+                    </article>
+                </template>
+
+                <template id="templateVazioExercicio">
+                    <div class="empty-state">
+                        <span>♟</span>
+                        <h3>Nenhum exercício encontrado</h3>
+                        <p>Tente alterar os filtros de tema ou faixa.</p>
+                    </div>
+                </template>
+
+                <dialog id="openingModal" class="opening-modal">
+                    <div class="modal-box">
+                        <div class="modal-head">
+                            <div>
+                                <small data-modal-categoria></small>
+                                <h3 data-modal-nome></h3>
+                            </div>
+                            <button type="button" class="btn secondary" data-modal-fechar>Fechar</button>
+                        </div>
+                        <img class="modal-img" data-modal-img src="" alt="" />
+                        <div class="moves" data-modal-movimentos></div>
+                    </div>
+                </dialog>
+
+                <footer>CHESS ACADEMY <span>·</span> Pratique o cálculo todos os dias.</footer>
+            </div>
+        </main>
     </div>
-  </body>
+</body>
+
 </html>
