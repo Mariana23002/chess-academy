@@ -6,14 +6,6 @@ create table faixas_rating (
     primary key(id_faixa)
 );
 
-create table alunos (
-    id_aluno serial,
-    nome varchar(50) not null,
-    rating_atual int not null,
-    faixa_id int references faixas_rating(id_faixa),
-    primary key(id_aluno)
-);
-
 create table aberturas (
     id_abertura serial,
     categoria varchar(20),
