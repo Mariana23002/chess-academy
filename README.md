@@ -1,5 +1,6 @@
 # ♞chess-academy
 
+O Chess Academy é uma plataforma web voltada para estudantes de xadrez, que recomenda conteúdos de estudo personalizados com base no nível (rating) do jogador.
 
 # ♟️Estrutura do Banco de Dados
 
